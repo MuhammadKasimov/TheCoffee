@@ -39,5 +39,8 @@ namespace StarBucks.Api.Controllers
         public async ValueTask<IActionResult> GetAllAsync([FromQuery] PaginationParams @params)
             => Ok(await orderService.GetAllAsync(@params, o => o.UserId == HttpContextHelper.UserId));
 
+        public async ValueTask<IActionResult> GetAllForAdmin([FromQuery] PaginationParams @params)
+            => Ok(await orderService.GetAllAsync(@params));
+
     }
 }
